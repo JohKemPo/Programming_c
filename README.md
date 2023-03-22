@@ -48,18 +48,8 @@
 
 <p align="justify">&emsp;  <b>Not a traditional virtualization system</b> Não é uma técnologia de máquina virtual, onde a máquina é completa.</p><br>
 
-<p align="justify">&emsp;  <b>Engine of containers administration </b> servilo de administra;áo desses containers, processos isolados do sistema host, incluido um sistema de arquivos isolados. A ideia do container é ter um espaço controlado isolado de todo o sistema. O ponto possitivo do uso de docker é que em comparaçao com a VM o docker usa o kernel e alguns binários, ocupando e consumindo muito menos memoris.</p><br>
-
-<p align="justify">&emsp; <b>Uses lxc services (linux containers)</b> contianer usa recusso da maquina host, ou seja o container deve estar baseado no mesmo kernel do host. </p><br>
-
-![image](https://user-images.githubusercontent.com/74382074/226244014-abf71cbf-582d-41ed-bc5b-9b9cea5a3690.png)
-
 
 <h2 id="libraries"><b>LIBRARIES<b></h2><br>
-
-<p align="justify">&emsp; In the project in question, we will use specific libraries that are fundamental for its execution. These libraries were carefully selected and their documentation and examples are available below to facilitate project development.</p><br>
-
-<p align="justify">&emsp; Be sure to consult the documentation and examples for each library to better understand how they work and how they can be used in your project. With the proper knowledge about these libraries, we can ensure a more efficient and successful project.</p><br>
 
 <h3><b>Useful links:</b></h3><br>
 
@@ -69,22 +59,14 @@
 
 <p align="justify">&emsp; TEXT DESCRIPTION</p><br>
 
-
-
-
-
 <!--------------------------------------------------------------------------->
 
 <h2 id="Tools"><b>USEFUL TOOLS</b></h2><br>
-
-<p align="justify">&emsp; Para garantir o sucesso do projeto, é importante utilizar as ferramentas adequadas. Nesse sentido, algumas ferramentas foram selecionadas e suas documentações e exemplos estão disponíveis abaixo:</p><br>
 
 <h3 id=""><a href="">NAME TOOL</a></h3><br>
 
 <p align="justify">&emsp; Interactive Tree Of Life é uma ferramenta on-line para exibição, anotação e gerenciamento de árvores filogenéticas e outras.Gerencie e visualize suas árvores diretamente no navegador e anote-as com vários conjuntos de dados.</p><br>
 
-
-<br>
 <br>
 
 <!--------------------------------------------------------------------------->
@@ -93,10 +75,7 @@
 
 <h3><a href="e">NAME</a></h3><br>
 
-
 <p align="justify">&emsp; TEXT DESCRIPTION</p><br>
-
-
 
 <!--------------------------------------------------------------------------->
 
