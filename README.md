@@ -11,7 +11,7 @@
 </style> -->
 
 <div align="center">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" width="220px"></image></div>
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" width="200px"></image></div>
 
 
 
