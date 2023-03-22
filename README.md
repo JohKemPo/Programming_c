@@ -10,19 +10,14 @@
     }
 </style> -->
 
-<div align="center"><image src="https://user-images.githubusercontent.com/74382074/225942034-7263a731-9833-40a7-aec1-a8b42de01948.png" width="220px"></image></div>
+<div align="center">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" width="220px"></image></div>
 
 
 
-<h1 align="center" id="head"><b>DOCKER REPOSITORY<b></h1>
+<h1 align="center" id="head"><b>PROGRAMMING C REPOSITORY<b></h1>
 
-<p align="center"><b> - STUDY ABOUT DOCKER AND ITS APPLICATIONS -</b></p>
-<br>
-
-<p align="justify">&emsp; Docker is an open-source platform used to build, ship, and run applications within containers. Containers are lightweight, portable, and self-contained environments that can run applications on any platform or operating system without requiring additional setup or configuration.</p><br>
-<p align="justify">&emsp; Docker allows developers to package an application and all its dependencies into a single container that can be deployed on any platform, making it easier to move and manage applications across different environments. Docker also enables multiple containers to run on a single host, allowing for better resource utilization and scalability.</p><br>
-<p align="justify">&emsp; Docker allows developers to package an application and all its dependencies into a single container that can be deployed on any platform, making it easier to move and manage applications across different environments. Docker also enables multiple containers to run on a single host, allowing for better resource utilization and scalability.</p><br>
-<br>
+<p align="center"><b> - STUDY ABOUT C LANGUAGE AND ITS APPLICATIONS -</b></p>
 <br>
 <br>
 
