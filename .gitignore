@@ -5,6 +5,18 @@
 # Prerequisites
 *.d
 
+### Executable ###
+*.app
+*.bat
+*.cgi
+*.com
+*.exe
+*.gadget
+*.jar
+*.pif
+*.vb
+*.wsf
+
 # Object files
 *.o
 *.ko
