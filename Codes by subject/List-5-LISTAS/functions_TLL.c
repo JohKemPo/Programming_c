@@ -1,39 +1,7 @@
-/**
- * @file Exe1.c
- * @author your name (you@domain.com)
- * @brief 
- * @version 0.1
- * @date 2023-03-24
- * 
- * @copyright Copyright (c) 2023
- * 
- */
-/*
-Faça uma função recursiva que retorne o número de nós contidos em uma lista L. Considere que L é
-simplesmente encadeada, sem nó cabeça e não circular. Os elementos de L não estão necessariamente
-em ordem.
-*/
 #include <stdio.h>
 #include <stdlib.h>
 #include "header_TLL.h"
 
-int main(int argc, char const *argv[])
-{
-    TLL *lst = (TLL*) malloc(sizeof(TLL));
-    if(!lst)exit(1);
-
-    init(lst);
-    print(lst);
-    printf("Number of nodes: %d\n", count_node(lst));
-    insert_start(lst);
-    insert_start(lst);
-    insert_start(lst);
-    print(lst);
-    printf("Number of nodes: %d\n", count_node(lst));
-    clean(lst);
-    
-    return 0;
-}
 
 void init(TLL *lst)
 {
