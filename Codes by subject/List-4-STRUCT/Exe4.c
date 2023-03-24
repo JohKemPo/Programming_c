@@ -24,7 +24,7 @@ deve apresentar no final:
 #include <stdlib.h>
 #include <string.h>
 
-#define N 3
+#define N 10
 
 typedef struct OS_generate
 {
@@ -33,12 +33,12 @@ typedef struct OS_generate
     float value_os;
 }OSG;
 
-void print(OSG *os)
+void print(OSG os)
 {
     printf("\n--------------------- OS INFORMATION ----------------------\n" );
     
-    printf("\nName: %s          OS Number: %d           Type: %s", os->name, os->os_num, os->type);
-    printf("\n                      Value: R$ %.2f                       ", os->value_os);
+    printf("\nName: %s          OS Number: %d           Type: %s", os.name, os.os_num, os.type);
+    printf("\n                      Value: R$ %.2f                       ", os.value_os);
     printf("\n\n");
     printf("-----------------------------------------------------------");
     
@@ -46,6 +46,8 @@ void print(OSG *os)
 
 void highest_value(OSG *os, float average)
 {
+    printf("\nABOVE AVERAGE\n" );
+    
     for(int i = 0; i < N; i++)
     {
         if(os[i].value_os > average)
@@ -58,7 +60,9 @@ int main(int argc, char const *argv[])
 {
     OSG *db = (OSG*) malloc(N * sizeof(OSG));
     if(!db)exit(1);
-    float average = 0;
+    float average = 0, value_max = 0;
+    char name_max[40];
+
 
     for( int i = 0; i < N; i++)
     {
@@ -86,7 +90,14 @@ int main(int argc, char const *argv[])
 
         average += db[i].value_os;
 
-        print(db);
+        if(db[i].value_os > value_max)
+        {
+            value_max = db[i].value_os;
+            strcpy(name_max, db[i].name );
+            
+        }
+
+        print(db[i]);
         printf("\n");
         
     }
@@ -94,7 +105,10 @@ int main(int argc, char const *argv[])
     printf("Average: %.2f", average/N);
 
     // •os nomes dos clientes que pagaram por serviços acima da média calculada; 
-    highest_value(db, average);
+    highest_value(db, average/N);
+
+    // •o nome do cliente que pagou pelo serviço mais caro.
+    printf("\nThe cusotmer who had the most value of OS: %s", name_max);
 
     free(db);
     return 0;
