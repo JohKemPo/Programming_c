@@ -46,7 +46,6 @@
 <br>
 <!-- <h3 id="WhatIsDocker"><b>WHAT IS DOCKER?</b></h3><br> -->
 
-<p align="justify">&emsp;  <b>Not a traditional virtualization system</b> Não é uma técnologia de máquina virtual, onde a máquina é completa.</p><br>
 
 
 <h2 id="libraries"><b>LIBRARIES<b></h2><br>
@@ -65,7 +64,6 @@
 
 <h3 id=""><a href="">NAME TOOL</a></h3><br>
 
-<p align="justify">&emsp; Interactive Tree Of Life é uma ferramenta on-line para exibição, anotação e gerenciamento de árvores filogenéticas e outras.Gerencie e visualize suas árvores diretamente no navegador e anote-as com vários conjuntos de dados.</p><br>
 
 <br>
 
