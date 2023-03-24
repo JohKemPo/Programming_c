@@ -19,23 +19,14 @@ typedef struct Banco_de_dados
     float salary;
 }BDados;
 
-
-
-void print()
-{
-
-}
-
 float average_salary(float average, int n)
 {   
-    average = average/n;
-    return average;
+    return average/n;
 }
 
 float average_children(float average, int n)
 {   
-    average = average/n;
-    return average;
+    return (float) average/n;
 }
 
 int main(int argc, char const *argv[])

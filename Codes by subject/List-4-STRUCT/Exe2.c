@@ -1,10 +1,4 @@
-#include <locale.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 
-
-#define N 27
 /*
 Foi feita uma estatística em 20 estados brasileiros para coletar dados sobre acidentes de
 trânsito. Foram informados dados como: a sigla do estado, o número de veículos, e a quantidade de
@@ -17,7 +11,13 @@ acidentes. Faça um programa que calcule e mostre:
 •o número total de acidentes de trânsito computado.
 
 */
+#include <locale.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
+
+#define N 27
 typedef struct statistics
 {
     char state[3];
@@ -81,6 +81,7 @@ int main(int argc, char const *argv[])
     printf("\nTotal number of incidents: %d", sum_incidents);
     printf("\n");
 
+    free(db);
 
     return 0;
 }
