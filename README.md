@@ -18,7 +18,7 @@
 <h1 align="center" id="head"><b>PROGRAMMING C REPOSITORY<b></h1>
 
 <p align="center"><b> - STUDY ABOUT C LANGUAGE AND ITS APPLICATIONS -</b></p>
-<br>
+
 <br>
 
 <h2 align="center"> S U M M A R Y </h2>
