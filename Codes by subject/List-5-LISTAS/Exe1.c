@@ -35,7 +35,9 @@ int main(int argc, char const *argv[])
     print(lst);
     printf("Number of nodes: %d\n", count_node(lst));
     clean(lst);
+    print(lst);
     
+    free(lst);
     return 0;
 }
 
@@ -55,7 +57,6 @@ int count_node(TLL *lst)
 
    while(aux->next != NULL)
    {
-        
         count++;
         aux = aux->next;
    }
@@ -109,11 +110,23 @@ void print(TLL *lst)
     }
 }
 void clean(TLL *lst){
-    TLL *aux;
-    while (lst != NULL) {
-        aux = lst;
-        lst = lst->next;
-        free(aux);
+    // TLL *aux;
+    // while (lst != NULL) {
+    //     aux = lst;
+    //     lst = lst->next;
+    //     free(aux);
+    // }
+    if(!empity(lst))
+    {
+        TLL *nextNo, *currNo;
+        currNo = lst->next;
+        while(currNo != NULL)
+        {
+            nextNo = currNo->next;
+            free(currNo);
+            currNo = nextNo;
+        }
     }
-    printf("CLEAR");
+    init(lst);
+    printf("\nCLEAR\n");
 }
