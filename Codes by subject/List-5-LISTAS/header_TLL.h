@@ -12,6 +12,7 @@ void init(TLL *lst);
 int empity(TLL *lst);
 int count_node(TLL *lst);
 void insert_start(TLL *lst);
+void insert_end(TLL *lst);
 void print(TLL *lst);
 void clean(TLL *lst);
 

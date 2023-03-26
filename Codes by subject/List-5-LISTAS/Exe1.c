@@ -17,6 +17,7 @@ em ordem.
 #include <stdlib.h>
 #include "header_TLL.h"
 
+
 int main(int argc, char const *argv[])
 {
     TLL *lst = (TLL*) malloc(sizeof(TLL));
@@ -25,9 +26,12 @@ int main(int argc, char const *argv[])
     init(lst);
     print(lst);
     printf("Number of nodes: %d\n", count_node(lst));
-    insert_start(lst);
-    insert_start(lst);
-    insert_start(lst);
+    // insert_start(lst);
+    // insert_start(lst);
+    // insert_start(lst);
+    insert_end(lst);
+    insert_end(lst);
+    insert_end(lst);
     print(lst);
     printf("Number of nodes: %d\n", count_node(lst));
     clean(lst);
@@ -65,10 +69,27 @@ void insert_start(TLL *lst)
     printf("Enter info: ");
     scanf("%d", &new->info);
 
-    // TLL *aux = lst->next;
     new->next = lst->next;
     lst->next = new;
 
+}
+
+void insert_end(TLL *lst)
+{
+    TLL *new = (TLL*) malloc(sizeof(TLL));
+    if(!new)exit(1);
+
+    printf("Enter info: ");
+    scanf("%d", &new->info);
+
+    TLL *aux = lst;
+    while (aux->next != NULL)
+    {
+        aux = aux->next;
+    }
+    aux->next = new;
+    new->next = NULL;
+    
 }
 void print(TLL *lst)
 {
