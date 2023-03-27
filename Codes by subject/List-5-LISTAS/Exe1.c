@@ -72,7 +72,6 @@ void insert_start(TLL *lst)
 
     new->next = lst->next;
     lst->next = new;
-
 }
 
 void insert_end(TLL *lst)

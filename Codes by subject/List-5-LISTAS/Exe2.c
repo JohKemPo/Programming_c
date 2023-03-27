@@ -35,24 +35,25 @@ typedef struct Type_linked_list
 void init(TLL *lst);
 int empity(TLL *lst);
 int count_node(TLL *lst);
-// void insert_ordered(TLL *lst);
+void insert_ordered(TLL *lst);
 void insert_start(TLL *lst);
 void print(TLL *lst);
 void clean(TLL *lst);
 
 
-int main(int argc, char const *argv[])
+int main()
 {
     TLL *lst = (TLL*) malloc(sizeof(TLL));
     if(!lst)exit(1);
 
     init(lst);
     print(lst);
-    insert_start(lst);
-    insert_start(lst);
-    insert_start(lst);
-    // insert_ordered(lst);
-    // insert_ordered(lst);
+    // insert_start(lst);
+    // insert_start(lst);
+    // insert_start(lst);
+    insert_ordered(lst);
+    insert_ordered(lst);
+    insert_ordered(lst);
     print(lst);
    
     printf("\nNumber of nodes: %d\n", count_node(lst));
@@ -60,7 +61,7 @@ int main(int argc, char const *argv[])
 
     clean(lst);
     print(lst);
-
+    free(lst);
     return 0;
 }
 
@@ -111,21 +112,59 @@ void print(TLL *lst)
 
 void clean(TLL *lst)
 {
-    if(!empity(lst))
+    // if(!empity(lst))
+    // {
+    //     TLL *nextNo, *currNo;
+    //     currNo = lst->next;
+    //     while(currNo != NULL)
+    //     {
+    //         nextNo = currNo->next;
+    //         free(currNo);
+    //         currNo = nextNo;
+    //     }
+    // }
+    TLL *nextNo, *currNo = lst;
+
+    while( currNo != NULL)
     {
-        TLL *nextNo, *currNo;
-        currNo = lst->next;
-        while(currNo != NULL)
-        {
-            nextNo = currNo->next;
-            free(currNo);
-            currNo = nextNo;
-        }
+        nextNo = currNo->next;
+        free(currNo);
+        currNo = nextNo;
     }
+
     init(lst);
     printf("\nCLEAR\n");
 }
+void insert_ordered(TLL *lst)
+{
+    TLL *new = (TLL*) malloc(sizeof(TLL));
+    if(!new)exit(1);
 
+    printf("\nEnter name: ");
+    scanf("%s", new->name);
+    printf("Enter code: ");
+    scanf("%d", &new->cod);
+    printf("Enter value: ");
+    scanf("%f", &new->value);
+
+    if(empity(lst))
+    {
+        new->next = lst->next;
+        lst->next = new;
+    }else if(new->cod < lst->next->cod)// menor
+    {
+        new->next = lst;
+        lst->next = new;
+    }else{
+        TLL *aux = lst;
+        while (aux->next && new->cod > aux->next->cod)
+        {
+            aux = aux->next;
+        }
+        new->next = aux->next;
+        aux->next = new;
+    }
+}
 // void insert_ordered(TLL *lst)
 // {
 //     TLL *new = (TLL*) malloc(sizeof(TLL));
@@ -174,7 +213,8 @@ void insert_start(TLL *lst)
     if(!new)exit(1);
 
     printf("\nEnter name: ");
-    scanf("%s", &new->name);
+    scanf("%s", new->name);
+    // gets(new->name);
     printf("Enter code: ");
     scanf("%d", &new->cod);
     printf("Enter value: ");
