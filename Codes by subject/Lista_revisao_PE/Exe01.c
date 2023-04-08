@@ -49,6 +49,7 @@ int main()
         if (primo[i]) {
             printf("%d ", i);
         }
+        
     }
     printf("\n");
     
