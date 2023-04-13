@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct lsita{
+typedef struct lista{
     int info;
     struct lista * prox;
 }TLSE;
@@ -29,13 +29,13 @@ void clear(TLSE *lst);
 int main(int argc, char const *argv[])
 {
     TLSE *lst = init();
-    // lst = insert_start(lst, 3);
-    // lst = insert_start(lst, 2);
-    // lst = insert_start(lst, 1);
+    lst = insert_start(lst, 3);
+    lst = insert_start(lst, 2);
+    lst = insert_start(lst, 1);
 
-    lst = insert_end(lst, 1);
-    lst = insert_end(lst, 3);
-    lst = insert_end(lst, 4);
+    // lst = insert_end(lst, 1);
+    // lst = insert_end(lst, 3);
+    // lst = insert_end(lst, 4);
     
     // print_direta(lst);
     print_direta_rec(lst);
@@ -139,14 +139,14 @@ void print_direta_rec(TLSE *lst){
         printf("| %d| -> ", lst->info);
         print_direta_rec(lst->prox);
     }
-    
+    // printf("NULL");
 }
 
 void print_invers(TLSE *lst){
     TLSE *pointer = lst, *aux = init();
     printf("\n");
     while(pointer != NULL){
-        aux = insert_start(aux, lst->info);
+        aux = insert_start(aux, pointer->info);
         pointer = pointer->prox;
     }
     print_direta(aux);
