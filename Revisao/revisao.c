@@ -29,16 +29,28 @@ void clear(TLSE *lst);
 int main(int argc, char const *argv[])
 {
     TLSE *lst = init();
-    lst = insert_start(lst, 3);
-    lst = insert_start(lst, 2);
-    lst = insert_start(lst, 1);
+    // lst = insert_start(lst, 3);
+    // lst = insert_start(lst, 2);
+    // lst = insert_start(lst, 1);
 
-    // lst = insert_end(lst, 1);
-    // lst = insert_end(lst, 3);
-    // lst = insert_end(lst, 4);
+    // lst = insert_ordered(lst, 10);
+    // lst = insert_ordered(lst, 9); 
+    // lst = insert_ordered(lst, 2);
     
-    // print_direta(lst);
+    // lst = insert_ordered_rec(lst, 10);
+    // lst = insert_ordered_rec(lst, 9);
+    // lst = insert_ordered_rec(lst, 2);
+    
+
+    lst = insert_end(lst, 1);
+    lst = insert_end(lst, 3);
+    lst = insert_end(lst, 4);
+    
+    printf("print direta\n");
+    print_direta(lst);
+    printf("print direta recursiva\n");
     print_direta_rec(lst);
+    printf("print inversa\n");
     print_invers(lst); // TIRAR DÚVIDA
 
     clear(lst);
@@ -83,6 +95,7 @@ TLSE *insert_end(TLSE *lst, int info){
         aux = aux->prox;
     }
     aux->prox = new;
+    return lst;
 }
 
 TLSE *insert_end_rec(TLSE *lst, int info){
@@ -105,6 +118,7 @@ TLSE *insert_ordered(TLSE *lst, int info){
     ant->prox = insert_start(p, info);
     return lst;
 }
+
 TLSE *insert_ordered_rec(TLSE *lst, int info){
     if((lst) || lst->info >=info)return insert_start(lst, info);
 }
