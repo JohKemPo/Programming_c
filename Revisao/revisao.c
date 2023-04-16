@@ -19,6 +19,11 @@ void print_direta_rec(TLSE *lst);
 void print_invers(TLSE *lst);
 void clear(TLSE *lst);
 TLSE *remove_elem(TLSE *lst, int info);
+void inverte(TLSE* lst);
+TLSE *inverte_retornando(TLSE* lst);
+TLSE *desloca (TLSE* lst, int n);
+TLSE *copia (TLSE *lst);
+TLSE* rto (TLSE* lst, int elem);
 
 // void remove_first(TLSE *lst);// !!
 
@@ -26,7 +31,7 @@ TLSE *remove_elem(TLSE *lst, int info);
 
 int main(int argc, char const *argv[])
 {
-    TLSE *lst = init(), *busca;
+    TLSE *lst = init(), *busca, *deslocada, *copiada, *aparicoes;
     // lst = insert_start(lst, 3);
     // lst = insert_start(lst, 2);
     // lst = insert_start(lst, 1);
@@ -46,6 +51,12 @@ int main(int argc, char const *argv[])
     lst = insert_end_rec(lst, 1);
     lst = insert_end_rec(lst, 3);
     lst = insert_end_rec(lst, 4);
+    lst = insert_end_rec(lst, 5);
+    lst = insert_end_rec(lst, 8);
+    lst = insert_end_rec(lst, 8);
+    lst = insert_end_rec(lst, 8);
+    lst = insert_end_rec(lst, 8);
+    lst = insert_end_rec(lst, 10);
 
     printf("\nprint direta\n");
     print_direta(lst);
@@ -59,10 +70,33 @@ int main(int argc, char const *argv[])
     busca = search_rec(lst, 3);
     if(busca)printf("Existe\n");
 
+    printf("Remove elem\n");
     lst = remove_elem(lst, 3);
     print_direta(lst);
 
+
+    inverte(lst);
+    printf("Invertida\n");
+    print_direta(lst);
+
+    printf("Deslocada\n");
+    deslocada = desloca(lst, 2);
+    print_direta(deslocada);
+    print_direta(lst);
+    
+    printf("Copiada\n");
+    copiada = copia(lst);
+    print_direta(copiada);
+    print_direta(lst);
+
+    printf("Aparicoes\n");
+    aparicoes = rto(lst, 8);
+    print_direta(aparicoes);
+    print_direta(lst);
+
+
     clear(lst);
+    clear(copiada);
     return 0;
 }
 
@@ -76,7 +110,6 @@ void clear(TLSE *lst){
         aux = aux->prox;
         free(pointer);
     }
-    
 }
 
 TLSE *insert_start(TLSE *lst, int info){
@@ -175,18 +208,21 @@ void print_invers(TLSE *lst){
 TLSE *remove_elem(TLSE *lst, int info){
     TLSE *aux = lst, *ant = NULL;
 
-    if(!search(lst, info))
-    {
-        printf("AAAA");
-        return lst;
-    }
+    if(!search(lst, info))return lst;
 
     //percorrer a lsita
     while(aux->prox && aux->info != info){
         // guardar o no anterior
         ant = aux;
         aux = aux->prox;
-    }    
+    } 
+    if(!ant){
+        ant = aux;
+        aux = aux->prox;
+        free(ant);
+        return aux;
+    }   
+
     //reeorg ponteiros
     ant->prox = aux->prox;
 
@@ -194,7 +230,67 @@ TLSE *remove_elem(TLSE *lst, int info){
     free(aux);
     return lst;
 }
+void inverte(TLSE* lst) {
+    TLSE *new = init(), *aux = lst;
 
-TLSE *remove_elem_rec(TLSE *lst, int info){
+    while(aux){
+        new = insert_start(new, aux->info);
+        aux = aux->prox;
+    }
+    // clear(lst);
+    // lst = init();
+    // print_direta(lst);
+    // print_direta(new);
+    *lst = *new;
+}
 
+TLSE *inverte_retornando(TLSE* lst) {
+    TLSE *new = init(), *aux = lst;
+
+    while(aux){
+        new = insert_start(new, aux->info);
+        aux = aux->prox;
+    }
+    // clear(lst);
+    // lst = init();
+    // print_direta(lst);
+    // print_direta(new);
+    return new;
+
+}
+TLSE *desloca (TLSE* lst, int n){
+    TLSE *aux = lst, *aux_tmp = copia(lst);
+    int tmp;
+
+    if( n % 2 == 0){
+        tmp = lst->info;
+        aux_tmp = remove_elem(aux_tmp, tmp);
+        aux_tmp = insert_end(aux_tmp, tmp);
+        return aux_tmp;
+    }
+    while (aux->prox)aux = aux->prox;
+    
+    tmp = aux->info;
+    aux_tmp = remove_elem(aux_tmp, tmp);
+    aux_tmp = insert_start(aux_tmp, tmp);
+    print_direta(lst);
+    return aux_tmp;
+}
+
+TLSE *copia (TLSE *lst){
+    TLSE *aux = lst, *new = init();
+    while (aux){
+        new = insert_end(new, aux->info);
+        aux = aux->prox;
+    }
+    // new = remove_elem(new, 4);
+    return new;
+}
+
+TLSE* rto (TLSE* lst, int elem){
+    TLSE *aux = copia(lst);
+
+    while (search(aux, elem))aux = remove_elem(aux, elem);
+    
+    return aux;
 }
