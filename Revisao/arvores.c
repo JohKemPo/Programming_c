@@ -57,3 +57,4 @@ TAB *insere_vet(int *vet, int n){
     if(n <= 0) return NULL;
     return criar(vet[n/2], insere_vet(vet, n/2), insere_vet(&vet[(n/2)+1], n-(n/2)-1));
 }
+
