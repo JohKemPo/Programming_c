@@ -11,6 +11,7 @@ TAB* menor(TAB *a);
 TAB* menor_aux(TAB *a, TAB *menor);
 int igual (TAB* a, TAB* b);
 int nf(TAB *a);
+
 int main(int argc, char const *argv[])
 {
     TAB *a = TAB_inicializa(), *b = TAB_inicializa(), *espelhada;
