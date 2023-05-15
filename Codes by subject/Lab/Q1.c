@@ -53,6 +53,11 @@ void len_vet_maior(TAB *ab, int n, int *count){
         len_vet_maior(ab->dir,n,count);
     }
 }
+/*
+ if(!a)return 0;
+ if(ab->info > n)return 1 + len_vet_maior(ab->esq, n) + len_vet_maior(ab->dir, n);
+ return len_vet_maior(ab->esq, n) + len_vet_maior(ab->dir, n);
+*/
 
 void TAB_to_vet(TAB *ab, int *vet, int N, int *posicao){
     if(!ab)return;

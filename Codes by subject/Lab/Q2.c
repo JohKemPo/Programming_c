@@ -18,10 +18,9 @@ typedef struct lseint{
 #define inf -10000000
 #define sup 10000000
 
-TLSEINT *anc(TAB *ab, int elem)
-;
-void TAB_to_vet(TAB *ab, int *vet, int *posicao);
+TLSEINT *anc(TAB *ab, int elem);
 TLSEINT *anc_aux(TAB *ab, int elem, int *vet,int tam);
+void TAB_to_vet(TAB *ab, int *vet, int *posicao);
 void bubbleSort(int *vet, int n);
 void len_ab(TAB* ab, int *count);
 int superior(int *vet, int n, int tam);
@@ -46,7 +45,7 @@ int main(int argc, char const *argv[])
 
     TAB_imp_ident(ab);
 
-    ancestrais = anc(ab,8);
+    ancestrais = anc(ab,2);
     TLSEINT_imprime(ancestrais);
 
     TAB_libera(ab);
