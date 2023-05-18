@@ -153,18 +153,19 @@ int na(TG *g){
 }
 
 int ig(TG *g1, TG *g2){
+  if(!g1 && !g2) return 1;
   if(!g1 || !g2) return 0;
 
   TG *aux_1 = g1, *aux_2 = g2;
 
   if(aux_1->id_no == aux_2->id_no){
     TVIZ *v1 = aux_1->prim_viz, *v2 = aux_2->prim_viz;
-    while(!v1 || !v2){
+    while(v1 || v2){
       if(v1->id_viz != v2->id_viz)return 0;
+      v1 = v1->prox_viz;
+      v2 = v2->prox_viz;
     }
-  }
-
-  else return 1;
+  }else return 0;
   
-  return 1 * ig(aux_1->prox_no, aux_2->prox_no); 
+  return ig(aux_1->prox_no, aux_2->prox_no); 
 }
