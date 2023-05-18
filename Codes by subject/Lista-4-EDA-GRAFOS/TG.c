@@ -135,3 +135,36 @@ TG* TG_retira_no(TG *g, int no){
   return g;
 }
 
+int nn(TG *g){
+  if((!g)) return 0;
+  return 1 + nn(g->prox_no);
+}
+
+int na(TG *g){
+  int count = 0;
+  if(g){
+    TVIZ *v = g->prim_viz;
+    while(v){
+      v = v->prox_viz;
+      count++;
+    }
+    return count + na(g->prox_no);
+  }  
+}
+
+int ig(TG *g1, TG *g2){
+  if(!g1 || !g2) return 0;
+
+  TG *aux_1 = g1, *aux_2 = g2;
+
+  if(aux_1->id_no == aux_2->id_no){
+    TVIZ *v1 = aux_1->prim_viz, *v2 = aux_2->prim_viz;
+    while(!v1 || !v2){
+      if(v1->id_viz != v2->id_viz)return 0;
+    }
+  }
+
+  else return 1;
+  
+  return 1 * ig(aux_1->prox_no, aux_2->prox_no); 
+}

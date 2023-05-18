@@ -22,3 +22,6 @@ TG* TG_ins_no(TG *g, int x);
 void TG_ins_aresta(TG *g, int no1, int no2);
 void TG_retira_aresta(TG *g ,int no1, int no2);
 TG* TG_retira_no(TG *g, int no);
+int nn(TG *g);
+int na(TG *g);
+int ig(TG *g1, TG *g2);

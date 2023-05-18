@@ -15,8 +15,8 @@ typedef struct lseint{
 } TLSEINT;
 */
 
-#define inf -10000000
-#define sup 10000000
+#define inf -1*__INT_MAX__
+#define sup __INT_MAX__
 
 TLSEINT *anc(TAB *ab, int elem);
 TLSEINT *anc_aux(TAB *ab, int elem, int *vet,int tam);
@@ -130,8 +130,8 @@ TLSEINT *anc(TAB *ab, int elem){
     }printf("\n");
 
 
-    // printf("SUP = %d\n", superior(vet, 9, count));
-    // printf("SUP = %d\n", inferior(vet, 9, count));
+    printf("SUP = %d\n", superior(vet, 9, count));
+    printf("INF = %d\n", inferior(vet, 1, count));
 
     // free(vet);
 
