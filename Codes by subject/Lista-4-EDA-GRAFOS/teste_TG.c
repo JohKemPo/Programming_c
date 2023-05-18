@@ -5,16 +5,19 @@
 int main(void){
   TG *g = TG_inicializa(), *h = TG_inicializa();
 
-  int n;
+  int n, c;
   do{
     printf("Digite o no: ");
     scanf(" %d", &n);
+    printf("Digite a cor do no: ");
+    scanf(" %d", &c);
+
     if(n <= 0) break;
-    g = TG_ins_no(g, n);
+    g = TG_ins_no_cor(g, n, c);
     h = TG_ins_no(g, n);
   }while(1);
 
-  TG_imprime(g);
+  TG_imprime_cor(g);
   
   int m;
   do{
@@ -25,8 +28,8 @@ int main(void){
     TG_ins_aresta(h, n, m);
   }while(1);
   
-  TG_imprime(g);
-  TG_imprime(h);
+  // TG_imprime(g);
+  // TG_imprime(h);
   
   // char op;
   // printf("Digite n ou a para retirar nos ou arestas...\n");
@@ -45,9 +48,12 @@ int main(void){
   //   }
   //   else break;
   // }while(1);
+
   printf("\nQuantidade de nos: %d", nn(g));
   printf("\nQuantidade de aresta: %d", nn(g));
   printf("\nSao iguais: %d", ig(g,h));
+  printf("\nCores iguais: %d", nao_tem_mesma_cor(g));
+
   TG_libera(g);
   return 0;
 }

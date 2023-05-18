@@ -18,6 +18,19 @@ void TG_imprime(TG *g){
   }
 }
 
+void TG_imprime_cor(TG *g){
+  while(g){
+    printf("Vizinhos do No %d com cor %d:\n", g->id_no, g->cor);
+    TVIZ *v = g->prim_viz;
+    while(v){
+      printf("%d ", v->id_viz);
+      v = v->prox_viz;
+    }
+    printf("\n");
+    g = g->prox_no;
+  }
+}
+
 void TG_imp_rec(TG *g){
   if(g){
     printf("%d:\n", g->id_no);
@@ -81,6 +94,19 @@ TG* TG_ins_no(TG *g, int x){
     p->id_no = x;
     p->prox_no = g;
     p->prim_viz = NULL;
+    g = p;
+  }
+  return g;
+}
+
+TG* TG_ins_no_cor(TG *g, int x, int cor){
+  TG *p = TG_busca_no(g, x);
+  if(!p){
+    p = (TG*) malloc(sizeof(TG));
+    p->id_no = x;
+    p->prox_no = g;
+    p->prim_viz = NULL;
+    p->cor = cor;
     g = p;
   }
   return g;
@@ -168,4 +194,28 @@ int ig(TG *g1, TG *g2){
   }else return 0;
   
   return ig(aux_1->prox_no, aux_2->prox_no); 
+}
+
+int testek(TG *g, int k){
+
+}
+
+int cor_aux(TG *g, TG* aux, int cor){
+  if(aux){
+    TG *no_atual;
+    TVIZ *v = aux->prim_viz;
+    while(v){ 
+      no_atual = TG_busca_no(g, v->id_viz);
+      if(aux->cor == no_atual->cor)return 0;
+      v = v->prox_viz;
+    }
+    return cor_aux(g, aux->prox_no, aux->cor);
+  }
+  return 1;
+}
+
+
+int nao_tem_mesma_cor(TG *g){
+  if(!g) return 0;
+  return cor_aux(g, g, g->cor);
 }

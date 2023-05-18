@@ -7,7 +7,7 @@ typedef struct viz {
 }TVIZ;
 
 typedef struct grafo{
-	int id_no;
+	int id_no, cor;
 	TVIZ *prim_viz;
 	struct grafo *prox_no;
 }TG;
@@ -25,3 +25,8 @@ TG* TG_retira_no(TG *g, int no);
 int nn(TG *g);
 int na(TG *g);
 int ig(TG *g1, TG *g2);
+int testek(TG *g, int k);
+int nao_tem_mesma_cor(TG *g);
+TG* TG_ins_no_cor(TG *g, int x, int cor);
+void TG_imprime_cor(TG *g);
+int cor_aux(TG *g, TG* aux, int cor);
