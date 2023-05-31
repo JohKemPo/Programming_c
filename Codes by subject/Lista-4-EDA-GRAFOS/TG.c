@@ -206,7 +206,7 @@ int cor_aux(TG *g, TG* aux, int cor){
     TVIZ *v = aux->prim_viz;
     while(v){ 
       no_atual = TG_busca_no(g, v->id_viz);
-      if(aux->cor == no_atual->cor)return 0;
+      if(aux->cor == no_atual->cor)return 1;
       v = v->prox_viz;
     }
     return cor_aux(g, aux->prox_no, aux->cor);
